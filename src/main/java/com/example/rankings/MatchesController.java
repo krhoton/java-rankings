@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MatchesController {
 
-    @Autowired
-    private MatchesDAO matchesDao;
+    private final MatchesDAO matchesDao;
+
+    public MatchesController(MatchesDAO matchesDao) {
+        this.matchesDao = matchesDao;
+    }
 
     @GetMapping(path = "/matches", produces = "application/json")
     public Matches GetMatches() {

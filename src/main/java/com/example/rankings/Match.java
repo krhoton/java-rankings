@@ -26,6 +26,17 @@ public class Match implements Serializable {
                 + ", score1=" + score1 + ", score2=" + score2 + "]";
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Match m) {
+            return m.player1.equals(player1) &&
+                    m.player2.equals(player2) &&
+                    m.score1 == score1 &&
+                    m.score2 == score2;
+        }
+        return false;
+    }
+
     public String getPlayer1() {
         return player1;
     }
